@@ -14,7 +14,7 @@ function Clock() {
 
         var minutes = Math.trunc(diff/1000/60%60);
 
-        var seconds = diff/1000%60;
+        var seconds = Math.trunc(diff/1000%60);
 
         output = `Time until newYear: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds.`
         head.innerHTML = output;
