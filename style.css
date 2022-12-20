@@ -130,7 +130,7 @@ section {
 }
 
 #mask {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     animation: sway 2s alternate ease-in-out infinite;
 }
