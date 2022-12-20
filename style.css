@@ -1,0 +1,174 @@
+/* HOTLINE MIAMI FONT */
+@font-face {
+    font-family: 'Retro Computer';
+    src: url('fonts/subset-RetroComputer.eot');
+    src: url('fonts/subset-RetroComputer.eot?#iefix') format('embedded-opentype'),
+        url('fonts/subset-RetroComputer.woff2') format('woff2'),
+        url('fonts/subset-RetroComputer.woff') format('woff'),
+        url('fonts/subset-RetroComputer.ttf') format('true-type'),
+        url('fonts/subset-RetroComputer.svg#RetroComputer') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+/* ШРИФТ НЕ ИМЕЕТ РУССКОГО ЯЗЫКА, ПОЭТОМУ ВСЁ НА АНГЛИЙСКОМ :) */
+/* Перевод текста находится в changeScene.js в switch-case конструкции.*/
+
+/* KEYFRAMES */
+
+@keyframes sway{
+    0%  {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 0%;
+	}
+
+	100% {
+		background-position: 1000% 500%;
+	}
+}
+
+@keyframes ts {
+	0% {
+		transform: translate(0.4vw, 0.4vw);
+	}
+
+	100% {
+		transform: translate(0vw, 0vw);
+	}
+}
+
+/* BODY */
+
+body {
+    background-color: black;
+    font-family: "Retro Computer";
+    color: white;
+    margin: 0;
+
+    /* making the whole thing display as a column layout */
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+/* TOP */
+
+#head {
+    max-height: 10%;
+    font-size: 2vw;
+
+    /* wrap-flex (column) */
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+/* MIDDLE */
+
+section {
+  border-top: solid;
+  border-bottom: solid;
+
+  /* making <section> as a default flex*/
+  display: -webkit-flex;
+  display: flex;
+
+  /* wrap-flex (column) */
+  -webkit-flex: 7;
+  -ms-flex: 7;
+  flex: 7;
+}
+
+#level-container {
+
+    /* section-flex (row) */
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#level {
+    max-width: 100%;
+    height: auto;
+}
+
+
+#mask-container{
+    border-left: solid;
+
+    /* section-flex (row) */
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+
+    /* making mask always be in the middle*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* gradient background animation */
+    background: linear-gradient(#ee7752, #e73c7e, #23a6d5, #23d5ab, #23a6d5, #e73c7e, #ee7752);
+    animation: gradient 60s linear infinite;
+    background-size: 1000% 1000%;
+}
+
+#mask {
+    max-width: 90%;
+    height: auto;
+    animation: sway 2s alternate ease-in-out infinite;
+}
+
+
+/* BOTTOM */
+#dialogue {
+    padding: 10px;
+    text-align: left;
+    font-size: 2vw;
+    color: white;
+    min-height: 50%;
+
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+#choice {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1%;
+}
+
+.clickable {
+    background: none;
+    transition: 0.5s;
+    min-width: 10%;
+    text-align: center;
+}
+
+.clickable:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    opacity: 1;
+}
+
+#msg {
+    animation: ts 1.5s alternate ease-in-out infinite;
+}
