@@ -14,6 +14,11 @@
 /* ШРИФТ НЕ ИМЕЕТ РУССКОГО ЯЗЫКА, ПОЭТОМУ ВСЁ НА АНГЛИЙСКОМ :) */
 /* Перевод текста находится в changeScene.js в switch-case конструкции.*/
 
+/* PREVIEW */
+#preview {
+height: 0px;
+}
+
 /* KEYFRAMES */
 
 @keyframes sway{
