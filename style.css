@@ -66,14 +66,21 @@ body {
 
 /* TOP */
 
-#head {
-    max-height: 10%;
-    font-size: 2vw;
+#statusBar-container {
+    display: flex;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-top: 0.15%;
+    margin-bottom: 0.15%;
 
     /* wrap-flex (column) */
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
+}
+
+#statusBar {
+    font-size: 2vw;
 }
 
 /* MIDDLE */
@@ -130,7 +137,7 @@ section {
 }
 
 #mask {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     animation: sway 2s alternate ease-in-out infinite;
 }
@@ -138,7 +145,6 @@ section {
 
 /* BOTTOM */
 #dialogue {
-    padding: 10px;
     text-align: left;
     font-size: 2vw;
     color: white;
@@ -151,6 +157,15 @@ section {
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
+}
+
+#msg-container {
+    margin: 0.5%;
+    display: flex;
+}
+
+#msg {
+    animation: ts 1.5s alternate ease-in-out infinite;
 }
 
 #choice {
@@ -174,6 +189,11 @@ section {
     opacity: 1;
 }
 
-#msg {
-    animation: ts 1.5s alternate ease-in-out infinite;
+@media screen and (max-width: 600px) {
+    body *{
+        font-size: 3vw;
+    }
+    #statusBar {
+        font-size: 3vw;
+    }
 }

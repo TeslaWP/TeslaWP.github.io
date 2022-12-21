@@ -16,9 +16,8 @@ function Clock() {
 
         var seconds = Math.trunc(diff/1000%60);
 
-        output = `Time until newYear: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds.`
-        head.innerHTML = output;
-
+        output = `Time until newYear: ${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds.`;
+        statusBar.innerHTML = output;
     }
 
     this.stop = function() {

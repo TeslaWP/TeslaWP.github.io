@@ -7,7 +7,7 @@ function init() {
     const mask = document.getElementById('mask');
     const level = document.getElementById('level');
     const msg = document.getElementById('msg');
-    const head = document.getElementById("head");
+    window.statusBar = document.getElementById("statusBar");
     const oneDay = 1000*60*60*24;
     goBack.addEventListener('click', back);
     goAuto.addEventListener('click', auto);
