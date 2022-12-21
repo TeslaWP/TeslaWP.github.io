@@ -4,17 +4,19 @@
 var isAuto = false;
 var scene = 1;
 var maxScenes = 8;
+var delay = 7000;
 var interval;
+var buttonUpdate;
+var j = 0;
 
 function updateScene() {
     if (scene==maxScenes) {
-        clearInterval(interval);
+        stopEverything();
     }
 
     /* "scene" variable limiter. From 1 to 8 only. */
     if (scene == null) {
-        clearInterval(interval);
-        isAuto = false;
+        stopEverything();
     } else if (scene>maxScenes) {
         scene = 1;
     } else if (scene<=0) {
@@ -78,6 +80,11 @@ function forward() {
     updateScene();
 };
 
+function forwardClick() {
+    stopEverything();
+    forward();
+}
+
 function back() {
     scene--;
     msg.innerHTML = "";
@@ -85,15 +92,34 @@ function back() {
     updateScene();
 };
 
+function backClick() {
+    stopEverything();
+    back();
+}
+
 /* Automated scene change */
 
-function auto() {
+function autoUpdate() {
     isAuto = !isAuto;
-    clearInterval(interval);
-    interval = setInterval(forward, 7000);
     if (isAuto==false) {
         clearInterval(interval);
+        clearInterval(buttonUpdate);
+        auto.innerHTML = "auto";
+        return;
     }
+
+    clearInterval(interval);
+    clearInterval(buttonUpdate);
+
+    interval = setInterval(function(){
+        forward();
+        j = 0;
+    }, delay);
+
+    buttonUpdate = setInterval(function(){
+        j++;
+        auto.innerHTML = (delay/1000)-j;
+    }, 1000);
 }
 
 /* Separate functions for each character and its scene. */
@@ -114,4 +140,12 @@ function Rasmus() {
     maskName = "Rasmus";
     level.src = "images/level3.png";
     msg.style.textShadow = "0.15vw 0.15vw mediumVioletRed";
+}
+
+function stopEverything() {
+    isAuto = false;
+    clearInterval(interval);
+    clearInterval(buttonUpdate);
+    j = 0;
+    auto.innerHTML = "auto";
 }

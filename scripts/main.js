@@ -7,11 +7,11 @@ function init() {
     const mask = document.getElementById('mask');
     const level = document.getElementById('level');
     const msg = document.getElementById('msg');
-    window.statusBar = document.getElementById("statusBar");
+    const statusBar = document.getElementById("statusBar");
     const oneDay = 1000*60*60*24;
-    goBack.addEventListener('click', back);
-    goAuto.addEventListener('click', auto);
-    goForward.addEventListener('click', forward);
+    goBack.addEventListener('click', backClick);
+    goAuto.addEventListener('click', autoUpdate);
+    goForward.addEventListener('click', forwardClick);
     updateScene();
     startClock();
 }
