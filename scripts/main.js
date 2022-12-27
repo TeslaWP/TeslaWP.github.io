@@ -1,3 +1,5 @@
+/* Main script that gets elements by ID, and adds event listeners. Also starts the clock and changeScene script */
+/* Главный скрипт, в котором получаем все элементы по ID, а также вешаем слушатели событий. Также запускаем часы */
 window.onload = init;
 
 function init() {

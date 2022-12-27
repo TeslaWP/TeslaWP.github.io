@@ -1,4 +1,4 @@
-
+/* Script for changing scene, character and text */
 /* Скрипт, отвечающий за смену сцены, персонажа и текста. */
 
 var isAuto = false;
@@ -15,6 +15,7 @@ function updateScene() {
     }
 
     /* "scene" variable limiter. From 1 to 8 only. */
+    /* ограничиваем переменную сцены, чтобы та была в промежутке [1;8] */
     if (scene == null) {
         stopEverything();
     } else if (scene>maxScenes) {
@@ -23,6 +24,8 @@ function updateScene() {
         scene = maxScenes;
     }
 
+    /* dialogues for each scene */
+    /* диалоги для каждой сцены */
     switch (scene) {
         case 1:
             DonJuan();
@@ -72,6 +75,11 @@ function updateScene() {
 };
 
 /* Go forward/back. Achieved by adding/subtracting of "scene" variable. */
+/* Функции, отвечающие за движение вперед/назад. Достигаются путём изменения переменной сцены. */
+/* Functions that end with Click() stop everything (mainly the autoscroll) before continuing */
+/* Функции, кончающиеся на Click() останавливают всё (авто-переключение) прежде чем продолжить */
+/* Also are event listeners */
+/* Также являются обработчиками событий */
 
 function forward() {
     scene++;
@@ -98,6 +106,7 @@ function backClick() {
 }
 
 /* Automated scene change */
+/* Автоматическая смена сцены */
 
 function autoUpdate() {
     isAuto = !isAuto;
@@ -110,12 +119,15 @@ function autoUpdate() {
 
     clearInterval(interval);
     clearInterval(buttonUpdate);
-
+    /* Interval for changing of scene (7 seconds) */
+    /* Интервал, отвечающий за смену сцены по прошествии 7 секунд */
     interval = setInterval(function(){
         forward();
         j = 0;
     }, delay);
 
+    /* Interval for updating the "AUTO" button text every second */
+    /* Интервал, отвечающий за обновление текста кнопки автоматического пролистывания каждую секунду */
     buttonUpdate = setInterval(function(){
         j++;
         auto.innerHTML = (delay/1000)-j;
@@ -123,6 +135,7 @@ function autoUpdate() {
 }
 
 /* Separate functions for each character and its scene. */
+/* Отдельные функции для каждого персонажа и сцены */
 
 function DonJuan() {
     maskName = "DonJuan";
@@ -141,6 +154,9 @@ function Rasmus() {
     level.src = "images/level3.png";
     msg.style.textShadow = "0.15vw 0.15vw mediumVioletRed";
 }
+
+/* Function, that basically stops everything related to auto-scroll. */
+/* Функция, отвечающая за остановку всего, что касается авто-прокрутки. */
 
 function stopEverything() {
     isAuto = false;
